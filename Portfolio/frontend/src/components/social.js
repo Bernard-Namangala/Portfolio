@@ -12,7 +12,6 @@ const SocialIcons = props => {
   useEffect(() => {
     axios.get("/api/v1/social/").then(res => {
       const social_media_icons = res.data;
-      console.log(res.data);
       setIcons(social_media_icons);
     });
   }, []);

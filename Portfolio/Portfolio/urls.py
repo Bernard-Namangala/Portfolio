@@ -14,4 +14,4 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-handler404 = "my_portfolio.views.index"
+handler404 = "frontend.views.handler404"

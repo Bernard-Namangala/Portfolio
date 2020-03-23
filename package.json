@@ -1,15 +1,15 @@
 {
   "name": "myportfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a porfolio website made with reactjs and django",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --watch ./Portfolio/frontend/src/index.js --output ./Portfolio/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./Portfolio/frontend/src/index.lj --output ./Portfolio/frontend/static/frontend/main.js"
+    "build": "webpack --mode production ./Portfolio/frontend/src/index.js --output ./Portfolio/frontend/static/frontend/main.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Bernard Namangala",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",

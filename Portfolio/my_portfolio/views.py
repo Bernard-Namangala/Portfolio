@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Home, AboutMe, Contact, Project, SocialMediaIcon
 from .serializers import HomeSerializer, AboutMeSerializer, ContactSerializer, ProjectSerializer, \
      SocialMediaIconSerializer
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 
 class HomeView(generics.ListAPIView):
@@ -15,7 +15,8 @@ class AboutMeView(generics.ListAPIView):
     serializer_class = AboutMeSerializer
 
 
-class ContactView(generics.ListCreateAPIView):
+class ContactView(generics.CreateAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
 

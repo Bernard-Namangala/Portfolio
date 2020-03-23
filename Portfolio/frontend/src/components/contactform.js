@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+axios.defaults.xsrfHeaderName = "x-CSRFToken";
+axios.defaults.xsrfCookieName = "csrftoken";
+
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -75,7 +78,7 @@ const ContactForm = () => {
       message: message
     };
     axios
-      .post("api/v1/contact/", contactInfo)
+      .post("/api/v1/contact/", contactInfo)
       .then(res => {
         let success_message = document.getElementById("post-submit-message");
         success_message.className = "text-success";
@@ -83,6 +86,7 @@ const ContactForm = () => {
         clearFormInputs();
       })
       .catch(error => {
+        console.log(contactInfo);
         let success_message = document.getElementById("post-submit-message");
         success_message.className = "text-danger";
         success_message.textContent = "oops there was an error";
