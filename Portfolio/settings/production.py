@@ -1,7 +1,11 @@
 import django_heroku
 from .base import *
 DEBUG = False
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/static'),
+]
 SECRET_KEY = os.environ('SECRET_KEY')
 
 DATABASES = {
