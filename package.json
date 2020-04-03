@@ -2,10 +2,10 @@
   "name": "myportfolio",
   "version": "1.0.0",
   "description": "This is a porfolio website made with reactjs and django",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./Portfolio/frontend/src/index.js --output ./Portfolio/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./Portfolio/frontend/src/index.js --output ./Portfolio/frontend/static/frontend/main.js",
+    "dev": "webpack --mode development --watch ./MyPortfolio/frontend/src/index.js --output ./MyPortfolio/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./MyPortfolio/frontend/src/index.js --output ./MyPortfolio/frontend/static/frontend/main.js",
     "postinstall": "npm run build"
   },
   "keywords": [],
