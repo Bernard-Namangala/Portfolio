@@ -16,3 +16,14 @@ def get_secret(setting, the_secrets=secrets):
         raise ImproperlyConfigured(error_message)
 
 SECRET_KEY = get_secret("SECRET_KEY")
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Portfolio',
+        'USER': 'postgres',
+        'PASSWORD': get_secret("DATABASE_PASSWORD"),
+        'HOST': 'localhost'
+    }
+}
