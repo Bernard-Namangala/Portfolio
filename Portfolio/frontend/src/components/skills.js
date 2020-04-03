@@ -17,6 +17,7 @@ const Skills = props => {
           <ul className="text-left">
             <li>HTML5</li>
             <li>CSS3</li>
+            <li>Reactjs</li>
             <li>Scss/Sass</li>
             <li>Jquery</li>
           </ul>
@@ -24,6 +25,7 @@ const Skills = props => {
           <ul className="text-left">
             <li>Django</li>
             <li>Django rest framework</li>
+            <li>Nodejs</li>
           </ul>
         </div>
       </motion.div>
