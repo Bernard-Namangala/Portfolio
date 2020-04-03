@@ -2,26 +2,11 @@ import os
 import json
 from django.core.exceptions import ImproperlyConfigured
 
-with open("secrets.json") as f:
-    secrets = json.loads(f.read())
-
-
-def get_secret(setting, the_secrets=secrets):
-    """
-    get the setting or return explicit exception
-    """
-    try:
-        return the_secrets[setting]
-    except KeyError:
-        error_message = "Set {0} environmental variable".format(setting)
-        raise ImproperlyConfigured(error_message)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_secret("SECRET_KEY")
 
 ALLOWED_HOSTS = ["localhost", '127.0.0.1']
 
@@ -71,18 +56,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Portfolio',
-        'USER': 'postgres',
-        'PASSWORD': get_secret("DATABASE_PASSWORD"),
-        'HOST': 'localhost'
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
