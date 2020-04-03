@@ -10,7 +10,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ALLOWED_HOSTS = ["localhost", '127.0.0.1']
 DEBUG = False
-SECRET_KEY = os.getenv('SECRET_KEY')
+
+SECRET_KEY = os.getenv('SECRET_KEY', "@u)^5#hm-6gc=(x5408r$qfyhwq$xo+9)yw=^eq52%rlj^&6mx")
 
 
 INSTALLED_APPS = [
@@ -63,7 +64,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Portfolio',
         'USER': 'postgres',
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'ilovecoding1@'),
         'HOST': 'localhost'
     }
 }
