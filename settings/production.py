@@ -8,6 +8,7 @@ STATICFILES_DIRS = [
 ]
 SECRET_KEY = os.environ['SECRET_KEY']
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
