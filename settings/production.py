@@ -1,6 +1,6 @@
 import django_heroku
 from .base import *
-DEBUG = False
+DEBUG = os.environ['DEBUG']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
