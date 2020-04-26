@@ -1,8 +1,7 @@
 from django.contrib import admin
-from .models import Home, AboutMe, Contact, Images, Project, Technologies, SocialMediaIcon, Person
+from .models import Contact, Images, Project, Technologies, SocialMediaIcon, Person
 
-admin.site.register(Home)
-admin.site.register(AboutMe)
+
 admin.site.register(Contact)
 admin.site.register(Images)
 admin.site.register(Project)

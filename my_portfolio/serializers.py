@@ -1,17 +1,5 @@
 from rest_framework import serializers
-from .models import Home, AboutMe, Contact, Project, Images, Technologies, SocialMediaIcon, Person
-
-
-class HomeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Home
-        exclude = ['id']
-
-
-class AboutMeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AboutMe
-        exclude = ['id']
+from .models import Contact, Project, Images, Technologies, SocialMediaIcon, Person
 
 
 class ContactSerializer(serializers.ModelSerializer):
