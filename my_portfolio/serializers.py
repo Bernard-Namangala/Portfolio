@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Home, AboutMe, Contact, Project, Images, Technologies, SocialMediaIcon
+from .models import Home, AboutMe, Contact, Project, Images, Technologies, SocialMediaIcon, Person
 
 
 class HomeSerializer(serializers.ModelSerializer):
@@ -46,3 +46,15 @@ class SocialMediaIconSerializer(serializers.ModelSerializer):
     class Meta:
         model = SocialMediaIcon
         exclude = ['id']
+
+
+class PersonSerializer(serializers.ModelSerializer):
+    projects = ProjectSerializer(many=True, read_only=True)
+    social = SocialMediaIconSerializer(many=True, read_only=True)
+
+    class Meta:
+        """
+        meta data
+        """
+        model = Person
+        exclude = ['id', 'messages']

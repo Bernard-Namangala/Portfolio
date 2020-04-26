@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Home, AboutMe, Contact, Project, SocialMediaIcon
+from .models import Home, AboutMe, Contact, Project, SocialMediaIcon, Person
 from .serializers import HomeSerializer, AboutMeSerializer, ContactSerializer, ProjectSerializer, \
-     SocialMediaIconSerializer
+     SocialMediaIconSerializer, PersonSerializer
 from rest_framework import generics, permissions
 
 
@@ -35,3 +35,7 @@ class SocialMediaIconView(generics.ListAPIView):
     queryset = SocialMediaIcon.objects.all()
     serializer_class = SocialMediaIconSerializer
 
+
+class PortfolioView(generics.RetrieveAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer

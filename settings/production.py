@@ -1,5 +1,6 @@
 import django_heroku
 from .base import *
+
 DEBUG = os.environ['DEBUG']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -22,4 +23,5 @@ DATABASES = {
 }
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 django_heroku.settings(locals())

@@ -84,3 +84,21 @@ class SocialMediaIcon(models.Model):
     def __str__(self):
         return self.link
 
+
+class Person(models.Model):
+    """
+    person model
+    """
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    developer_position = models.CharField(max_length=100)
+    introduction_main = models.CharField(max_length=255)
+    introduction_typed = models.CharField(max_length=255)
+    profile_photo = models.ImageField(upload_to="images/profile", blank=True)
+    about = models.TextField(max_length=1000)
+    messages = models.ManyToManyField(to=Contact, blank=True)
+    projects = models.ManyToManyField(to=Project, blank=True)
+    social = models.ManyToManyField(to=SocialMediaIcon)
+
+    def __str__(self):
+        return "{} {}".format(self.first_name, self.last_name)

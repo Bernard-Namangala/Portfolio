@@ -12,27 +12,28 @@ const Project = ({ project }) => {
     transition: "background-color 350ms ease",
     backgroundColor: "transparent",
     padding: "20px 20px 0 20px",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
   });
   const Title = styled.h4({
     textTransform: "uppercase",
     fontFamily: "Helvetica",
-    fontWeight: "4"
+    fontWeight: "4",
+    backgroundColor: "rgba(0,0,0,.65)",
   });
   const Hover = styled.div({
     opacity: 0,
     transition: "opacity 350ms ease",
-    height: "auto"
+    height: "auto",
   });
 
   const SubTitle = styled.h5({
     fontFamily: "Helvetica",
     transform: "translate3d(0,50px,0)",
-    transition: "transform 350ms ease"
+    transition: "transform 350ms ease",
   });
   const Paragraph = styled.div({
     transform: "translate3d(0,-50px,0)",
-    transition: "transform 350ms ease"
+    transition: "transform 350ms ease",
   });
   const ButtontoProject = styled.a({
     position: "absolute",
@@ -49,8 +50,8 @@ const Project = ({ project }) => {
     ":hover": {
       textDecoration: "none",
       fontSize: "17px",
-      color: "#fff"
-    }
+      color: "#fff",
+    },
   });
 
   const Background = styled.div({
@@ -66,14 +67,14 @@ const Project = ({ project }) => {
     backgroundColor: "red",
     backgroundPosition: "center",
     [`:hover ${DisplayOver}`]: {
-      backgroundColor: "rgba(0,0,0,.5)"
+      backgroundColor: "rgba(0,0,0,.5)",
     },
     [`:hover ${SubTitle}, :hover ${Paragraph}, :hover ${ButtontoProject}`]: {
-      transform: "translate3d(0,0,0)"
+      transform: "translate3d(0,0,0)",
     },
     [`:hover ${Hover}`]: {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   });
 
   return (

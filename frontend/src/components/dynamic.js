@@ -9,12 +9,12 @@ import Project from "./project";
 import Skills from "./skills";
 import { Route, Switch, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-const Dynamic = props => {
+const Dynamic = (props) => {
   const location = useLocation();
   const loader = {
     loader: "bubble-spin",
     color: "#ddd",
-    size: 7
+    size: 7,
   };
   return (
     <div
@@ -28,11 +28,8 @@ const Dynamic = props => {
           <Route
             path="/"
             exact
-            render={config => (
+            render={(config) => (
               <Intro
-                introduction_main={props.introduction_main}
-                introduction_typed={props.introduction_typed}
-                name={props.first_name}
                 Dynamic_page_animations={props.Dynamic_page_animations}
                 loader={loader}
               />
@@ -42,7 +39,7 @@ const Dynamic = props => {
           <Route
             path="/about"
             exact
-            render={config => (
+            render={(config) => (
               <About
                 Dynamic_page_animations={props.Dynamic_page_animations}
                 loader={loader}
@@ -52,7 +49,7 @@ const Dynamic = props => {
           <Route
             path="/contact"
             exact
-            render={config => (
+            render={(config) => (
               <Contact
                 Dynamic_page_animations={props.Dynamic_page_animations}
                 loader={loader}
@@ -62,7 +59,7 @@ const Dynamic = props => {
           <Route
             path="/portfolio"
             exact
-            render={config => (
+            render={(config) => (
               <Portfolio
                 loader={loader}
                 Dynamic_page_animations={props.Dynamic_page_animations}
@@ -72,7 +69,7 @@ const Dynamic = props => {
           <Route
             path="/project/:project_id(\d+)"
             exact
-            render={config => (
+            render={(config) => (
               <Project
                 loader={loader}
                 Dynamic_page_animations={props.Dynamic_page_animations}
@@ -83,7 +80,7 @@ const Dynamic = props => {
           <Route
             path="/skills"
             exact
-            render={config => (
+            render={(config) => (
               <Skills
                 loader={loader}
                 Dynamic_page_animations={props.Dynamic_page_animations}
@@ -92,7 +89,7 @@ const Dynamic = props => {
           />
 
           <Route
-            render={config => (
+            render={(config) => (
               <Error
                 Dynamic_page_animations={props.Dynamic_page_animations}
                 loader={loader}
@@ -107,9 +104,6 @@ const Dynamic = props => {
 };
 
 Dynamic.propTypes = {
-  introduction_main: PropTypes.string,
-  introduction_typed: PropTypes.string,
-  first_name: PropTypes.string,
-  Dynamic_page_animations: PropTypes.object
+  Dynamic_page_animations: PropTypes.object,
 };
 export default Dynamic;
