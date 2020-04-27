@@ -73,7 +73,7 @@ class Person(models.Model):
     about = models.TextField(max_length=1000)
     messages = models.ManyToManyField(to=Contact, blank=True)
     projects = models.ManyToManyField(to=Project, blank=True)
-    social = models.ManyToManyField(to=SocialMediaIcon)
+    social = models.ManyToManyField(to=SocialMediaIcon, blank=True)
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
