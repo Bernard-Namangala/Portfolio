@@ -19,6 +19,8 @@ class Project(models.Model):
     project_description = models.TextField(max_length=1500)
     github_repo = models.URLField(blank=True)
     live_demo = models.URLField(blank=True)
+    owner = models.ForeignKey(to="Person", related_name="projects",
+                              on_delete=models.CASCADE)
 
     def __str__(self):
         return self.project_name
@@ -55,6 +57,8 @@ class Technologies(models.Model):
 class SocialMediaIcon(models.Model):
     link = models.URLField(max_length=2087)
     icon = models.ImageField(upload_to="images/social")
+    owner = models.ForeignKey(to="Person", related_name="social", 
+                              on_delete=models.CASCADE)
 
     def __str__(self):
         return self.link
@@ -72,8 +76,6 @@ class Person(models.Model):
     profile_photo = models.ImageField(upload_to="images/profile", blank=True)
     about = models.TextField(max_length=1000)
     messages = models.ManyToManyField(to=Contact, blank=True)
-    projects = models.ManyToManyField(to=Project, blank=True)
-    social = models.ManyToManyField(to=SocialMediaIcon, blank=True)
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
