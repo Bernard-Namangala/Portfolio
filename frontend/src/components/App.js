@@ -20,6 +20,7 @@ class App extends Component {
     this.state = {
       projects: [],
       social: [],
+      ready: false,
     };
     this.Dynamic_page_animations = {
       initial: "initial",
@@ -54,33 +55,51 @@ class App extends Component {
 
   componentDidMount() {
     //getting information for the home page from api
-    axios.get("/api/v1/person/1").then((res) => {
-      const info = res.data;
-      this.setState(info);
-    });
+    axios
+      .get("/api/v1/person/1")
+      .then((res) => {
+        const info = res.data;
+        this.setState(info);
+      })
+      .finally((res) => {
+        this.setState({
+          ...this.state,
+          ready: true,
+        });
+      });
   }
 
   render() {
-    return (
-      <MyContext.Provider value={this.state}>
-        <BrowserRouter>
-          <div className="container" id="main-container">
-            <div className="row">
-              <div id="root" className="col-md-12">
-                <Navbar />
+    if (this.state.ready === false) {
+      return (
+        <div id="loading-image-holder">
+          <img src="../static/loading.gif" id="loading-image"></img>
+        </div>
+      );
+    } else {
+      return (
+        <MyContext.Provider value={this.state}>
+          <BrowserRouter>
+            <div className="container" id="main-container">
+              <div className="row">
+                <div id="root" className="col-md-12">
+                  <Navbar />
+                </div>
+              </div>
+              <div className="mt-5"></div>
+              <div className="row" id="dynamic-child-holder">
+                <Dynamic
+                  Dynamic_page_animations={this.Dynamic_page_animations}
+                />
               </div>
             </div>
-            <div className="mt-5"></div>
-            <div className="row" id="dynamic-child-holder">
-              <Dynamic Dynamic_page_animations={this.Dynamic_page_animations} />
+            <div className="container">
+              <Footer />
             </div>
-          </div>
-          <div className="container">
-            <Footer />
-          </div>
-        </BrowserRouter>
-      </MyContext.Provider>
-    );
+          </BrowserRouter>
+        </MyContext.Provider>
+      );
+    }
   }
 }
 

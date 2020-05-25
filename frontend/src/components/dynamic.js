@@ -9,13 +9,10 @@ import Project from "./project";
 import Skills from "./skills";
 import { Route, Switch, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+
 const Dynamic = (props) => {
   const location = useLocation();
-  const loader = {
-    loader: "bubble-spin",
-    color: "#ddd",
-    size: 7,
-  };
+
   return (
     <div
       style={{ position: "relative" }}
@@ -29,10 +26,7 @@ const Dynamic = (props) => {
             path="/"
             exact
             render={(config) => (
-              <Intro
-                Dynamic_page_animations={props.Dynamic_page_animations}
-                loader={loader}
-              />
+              <Intro Dynamic_page_animations={props.Dynamic_page_animations} />
             )}
           />
 
@@ -40,10 +34,7 @@ const Dynamic = (props) => {
             path="/about"
             exact
             render={(config) => (
-              <About
-                Dynamic_page_animations={props.Dynamic_page_animations}
-                loader={loader}
-              />
+              <About Dynamic_page_animations={props.Dynamic_page_animations} />
             )}
           />
           <Route
@@ -52,7 +43,6 @@ const Dynamic = (props) => {
             render={(config) => (
               <Contact
                 Dynamic_page_animations={props.Dynamic_page_animations}
-                loader={loader}
               />
             )}
           />
@@ -61,7 +51,6 @@ const Dynamic = (props) => {
             exact
             render={(config) => (
               <Portfolio
-                loader={loader}
                 Dynamic_page_animations={props.Dynamic_page_animations}
               />
             )}
@@ -71,7 +60,6 @@ const Dynamic = (props) => {
             exact
             render={(config) => (
               <Project
-                loader={loader}
                 Dynamic_page_animations={props.Dynamic_page_animations}
               />
             )}
@@ -81,19 +69,13 @@ const Dynamic = (props) => {
             path="/skills"
             exact
             render={(config) => (
-              <Skills
-                loader={loader}
-                Dynamic_page_animations={props.Dynamic_page_animations}
-              />
+              <Skills Dynamic_page_animations={props.Dynamic_page_animations} />
             )}
           />
 
           <Route
             render={(config) => (
-              <Error
-                Dynamic_page_animations={props.Dynamic_page_animations}
-                loader={loader}
-              />
+              <Error Dynamic_page_animations={props.Dynamic_page_animations} />
             )}
           />
         </Switch>

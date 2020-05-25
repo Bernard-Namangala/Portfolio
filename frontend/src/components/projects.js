@@ -54,6 +54,11 @@ const Project = ({ project }) => {
     },
   });
 
+  let background_image = "";
+  if (project.images[0]) {
+    background_image = project.images[0].image;
+  }
+
   const Background = styled.div({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -62,7 +67,7 @@ const Project = ({ project }) => {
     cursor: "pointer",
     boxShadow:
       "5px 5px rgba(0, 0, 0, 0.4), 10px 10px rgba(0, 0, 0, 0.3), 15px 15px rgba(0, 0, 0, 0.2),20px 20px rgba(0, 0, 0, 0.1),25px 25px rgba(0, 0, 0, 0.05)",
-    backgroundImage: `url(${project.images[0].image})`,
+    backgroundImage: `url(${background_image})`,
     overflowY: "hidden",
     backgroundColor: "red",
     backgroundPosition: "center",

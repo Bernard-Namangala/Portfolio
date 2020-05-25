@@ -67,78 +67,72 @@ const Intro = (props) => {
   return (
     <MyContext.Consumer>
       {(context) => (
-        <Page {...props.loader}>
-          <motion.div {...props.Dynamic_page_animations}>
-            {/* <div className="row" id="intro"> */}
-            <div
-              id="intro-heading"
-              className="text-center mt-5 white-text shake"
+        <motion.div {...props.Dynamic_page_animations}>
+          {/* <div className="row" id="intro"> */}
+          <div id="intro-heading" className="text-center mt-5 white-text shake">
+            <h1>
+              {/* <Typist.Delay ms={1050} /> */}
+              {context.introduction_main}{" "}
+              <span className="text-primary">{context.first_name}.</span>
+            </h1>
+            <Typist>
+              <Typist.Delay ms={1100} />
+              <h4>
+                <span>{context.introduction_typed}</span>
+              </h4>
+            </Typist>
+            <Spring
+              from={{ marginLeft: -10000 }}
+              to={{ marginLeft: 0 }}
+              config={{ delay: 2200, duration: 3000 }}
             >
-              <h1>
-                {/* <Typist.Delay ms={1050} /> */}
-                {context.introduction_main}{" "}
-                <span className="text-primary">{context.first_name}.</span>
-              </h1>
-              <Typist>
-                <Typist.Delay ms={1100} />
-                <h4>
-                  <span>{context.introduction_typed}</span>
-                </h4>
-              </Typist>
-              <Spring
-                from={{ marginLeft: -10000 }}
-                to={{ marginLeft: 0 }}
-                config={{ delay: 2200, duration: 3000 }}
-              >
-                {(configs) => (
-                  <div style={configs}>
-                    <h5>Lets turn your idea into reality.</h5>
-                    <ParticleEffectButton
-                      hidden={first_button_hidden_status}
-                      {...button_data}
+              {(configs) => (
+                <div style={configs}>
+                  <h5>Lets turn your idea into reality.</h5>
+                  <ParticleEffectButton
+                    hidden={first_button_hidden_status}
+                    {...button_data}
+                  >
+                    <Link
+                      to="/contact"
+                      className="d-none"
+                      id="first-button"
+                    ></Link>
+                    <button
+                      className="btn btn-lg btn-tempt"
+                      onClick={() => delaythis(1)}
                     >
-                      <Link
-                        to="/contact"
-                        className="d-none"
-                        id="first-button"
-                      ></Link>
-                      <button
-                        className="btn btn-lg btn-tempt"
-                        onClick={() => delaythis(1)}
-                      >
-                        Contact me
-                      </button>
-                    </ParticleEffectButton>
-                    &nbsp; &nbsp;
-                    <ParticleEffectButton
-                      hidden={second_button_hidden_status}
-                      {...button_data}
+                      Contact me
+                    </button>
+                  </ParticleEffectButton>
+                  &nbsp; &nbsp;
+                  <ParticleEffectButton
+                    hidden={second_button_hidden_status}
+                    {...button_data}
+                  >
+                    <Link
+                      to="/portfolio"
+                      className=".d-none"
+                      id="second-button"
+                    ></Link>
+                    <button
+                      className="btn btn-lg btn-tempt"
+                      onClick={() => delaythis(2)}
                     >
-                      <Link
-                        to="/portfolio"
-                        className=".d-none"
-                        id="second-button"
-                      ></Link>
-                      <button
-                        className="btn btn-lg btn-tempt"
-                        onClick={() => delaythis(2)}
-                      >
-                        See my work
-                      </button>
-                    </ParticleEffectButton>
-                  </div>
-                )}
-              </Spring>
-            </div>
-            {/* </div> */}
-          </motion.div>
-        </Page>
+                      See my work
+                    </button>
+                  </ParticleEffectButton>
+                </div>
+              )}
+            </Spring>
+          </div>
+          {/* </div> */}
+        </motion.div>
       )}
     </MyContext.Consumer>
   );
 };
 Intro.propTypes = {
   Dynamic_page_animations: PropTypes.object,
-  loader: PropTypes.object,
 };
 export default Intro;

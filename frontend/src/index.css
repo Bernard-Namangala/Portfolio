@@ -400,3 +400,15 @@ textarea {
 #fit-skills ul {
   list-style: none;
 }
+
+#loading-image-holder {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+#loading-image {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
